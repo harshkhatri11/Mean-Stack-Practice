@@ -1,0 +1,135 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./app/shared/styles/variables";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "../node_modules/ngx-toastr/toastr.css";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+// @import "~@ng-select/ng-select/themes/material.theme.css";
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  color: #67757c;
+  font-weight: 300;
+  background: $white;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  background: $white;
+}
+
+a {
+  text-decoration: none !important;
+  color: #000000de !important;
+}
+
+.core-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: $primary-color;
+}
+
+.align-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-color-mat-icon {
+  color: $primary-color;
+}
+
+.warn-color-mat-icon {
+  color: $red;
+}
+
+//blur the background when dialog box open
+.blurred {
+  backdrop-filter: blur(3px);
+}
+
+//put the red astrix after the label if input is required
+.required-asterix::after {
+  content: "*";
+  color: red;
+  position: relative;
+  left: 0.3rem;
+}
+
+//Material Input field related changes
+
+.mat-mdc-form-field {
+  margin-top: 0.2rem;
+}
+
+.mdc-text-field--outlined {
+  height: 45px !important;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined {
+  .mat-icon {
+    padding-top: 0;
+  }
+}
+
+mat-datepicker-toggle .mdc-icon-button {
+  padding-top: 0 !important;
+}
+
+//End of Material Input field related changes
+
+//Ng-Select custom style chnages
+
+.ng-select {
+  margin-bottom: 1rem;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 45px;
+}
+
+.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+  border-color: #00000066;
+  box-shadow: none;
+}
+
+.ng-select .ng-select-container {
+  margin-top: 0.3rem;
+  border: 1px solid #00000066;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-input>input {
+  padding: 0.3rem 0 !important;
+}
+
+.ng-select.ng-invalid.ng-touched .ng-select-container {
+  border-color: #f44336;
+}
+
+//End of Ng-Select custom style chnages
+
+
+.highlight {
+  background-color: yellow;
+  color: black;
+  font-weight: 900;
+}
+
+@import "./app/shared/styles/app.scss";
+@import "./app/shared/styles/header.scss";
+@import "./app/shared/styles/pages.scss";
+@import "./app/shared/styles/sidebar.scss";

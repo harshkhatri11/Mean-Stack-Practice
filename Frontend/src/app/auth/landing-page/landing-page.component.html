@@ -1,0 +1,16 @@
+<!-- <p>Welcome to my portfolio</p> -->
+<!-- <button (click)="onLogin()">Login</button>
+<button (click)="onSignup()">Signup</button>
+
+<mat-divider class="my-5"></mat-divider> -->
+<div class="container-fluid">
+  <div class="mt-3 d-flex justify-content-center" *ngIf="isSignBtnVisbile">
+    <button mat-button mat-dialog-close mat-raised-button color="primary" (click)="handleUserAuthentication()" class="user-login-btn">Login</button>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+
+
+
+
+

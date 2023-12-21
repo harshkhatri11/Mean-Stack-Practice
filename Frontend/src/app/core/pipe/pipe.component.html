@@ -1,0 +1,95 @@
+<div class="heading">
+  <h1>Pipes Examples</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-lg-4 col-xs-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title class="pipe-title">Search Highlight</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div style="position: relative" class="mt-3 mb-3">
+            <mat-icon matPrefix class="search-icon">search</mat-icon
+            ><input
+              type="text"
+              [(ngModel)]="searchedTerm"
+              placeholder="Search..."
+              class="search-input"
+            />
+          </div>
+          <ul>
+            <li *ngFor="let item of list | search : searchedTerm">
+              <span [innerHTML]="item.name | highlight : searchedTerm"></span>
+            </li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-md-4 col-lg-4 col-xs-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title class="pipe-title">Number to Words</mat-card-title>
+          <mat-card-subtitle style="font-style: italic"
+            >(Indian Standard)</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-content class="mt-2">
+          <label for="number" class="form-label">Enter Number</label>
+          <input
+            type="number"
+            id="number"
+            class="form-control"
+            [(ngModel)]="numIndianStandard"
+            placeholder="Enter a number..."
+          />
+          <p class="mt-1">
+            <br />{{ numIndianStandard | numberToWordIndianStandard }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-md-4 col-lg-4 col-xs-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title class="pipe-title">Number to Words</mat-card-title>
+          <mat-card-subtitle style="font-style: italic"
+            >(Global Standard)</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-content class="mt-2">
+          <label for="number" class="form-label">Enter Number</label>
+          <input
+            type="number"
+            id="number"
+            class="form-control"
+            [(ngModel)]="numGlobalStandard"
+            placeholder="Enter a number..."
+          />
+          <p class="mt-1">
+            <br />{{ numGlobalStandard | numberToWordGlobalStandard }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+      <div class="col-md-4 col-lg-4 col-xs-12">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title class="pipe-title">Truncate Text</mat-card-title>
+            <mat-card-subtitle style="font-style: italic"
+              >(Default Length : 300 ,Suffix : '...')</mat-card-subtitle
+            >
+          </mat-card-header>
+          <mat-card-content class="mt-3">
+            <p>{{ truncateText | truncateText : 150 : ".........." }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+  </div>
+</div>

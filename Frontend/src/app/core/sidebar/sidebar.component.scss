@@ -1,0 +1,35 @@
+@import "../../shared/styles/variables";
+
+.is-active {
+  background: $primary-color;
+  border-radius: 4px;
+  color: $white !important;
+  height: 45px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  white-space: nowrap;
+
+  mat-icon {
+    color: $white !important;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  color: rgb(131 115 115);
+}
+
+.search-input {
+  border-radius: 20px;
+  border: 1px solid rgb(192 186 186);
+  padding: 5px 5px 5px 35px;
+
+  &::placeholder {
+    margin-left: 10px;
+  }
+}

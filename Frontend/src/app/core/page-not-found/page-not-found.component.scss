@@ -1,0 +1,24 @@
+.page-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 58vw;
+  }
+}
+
+.go-back-btn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .page-not-found {
+    img {
+      width: 100%;
+    }
+  }
+}

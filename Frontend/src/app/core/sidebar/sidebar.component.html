@@ -1,0 +1,31 @@
+<mat-nav-list appAccordion>
+  <div style="position: relative" class="mt-3 mb-3 ms-2">
+    <mat-icon matPrefix class="search-icon">search</mat-icon>
+    <input
+      type="text"
+      [(ngModel)]="searchedTerm"
+      placeholder="Search..."
+      class="search-input"
+    />
+  </div>
+  <mat-list-item
+    appAccordionLink
+    *ngFor="let menuitem of menuItems.getMenuitem() | search : searchedTerm"
+    routerLinkActive="selected"
+    group="{{ menuitem.state }}"
+  >
+    <a
+      appAccordionToggle
+      [routerLink]="[menuitem.state]"
+      [routerLinkActive]="['is-active']"
+      *ngIf="
+        menuitem.role === '' || menuitem.role === this.tokenPayload.role[0]
+      "
+    >
+      <mat-icon>{{ menuitem.icon }}</mat-icon>
+      <!-- <span>{{menuitem.name | translate}}</span> -->
+      <span [innerHTML]="menuitem.name | highlight : searchedTerm"></span>
+      <span fxFlex></span>
+    </a>
+  </mat-list-item>
+</mat-nav-list>

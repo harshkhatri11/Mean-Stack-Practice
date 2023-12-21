@@ -1,0 +1,141 @@
+<div class="user-auth-container">
+  <div class="container" id="container" [ngClass]="{ active: showActiveClass }">
+    <div class="form-container sign-up">
+      <form [formGroup]="signupForm" *ngIf="!isLoading">
+        <h1>Create Account</h1>
+        <!-- <div class="social-icons">
+          <a href="#" class="icons"><i class="fa-brands fa-google-plus-g"></i></a>
+          <a href="#" class="icons"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="icons"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="icons"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div> -->
+        <!-- <span>or use your email to registration</span> -->
+        <!-- <input type="text" placeholder="Name"> -->
+        <input type="email" placeholder="Email" formControlName="email" />
+        <div
+          *ngIf="
+            signupForm.controls?.email?.touched &&
+            signupForm.controls?.email?.invalid
+          "
+          class="text-danger"
+        >
+          <span *ngIf="signupForm.controls.email?.errors?.required"
+            >Email is required.</span
+          >
+          <span *ngIf="signupForm.controls.email.errors.email"
+            >Please enter a valid email.</span
+          >
+        </div>
+
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div
+          *ngIf="
+            signupForm.controls.password.touched &&
+            signupForm.controls.password.invalid
+          "
+          class="text-danger"
+        >
+          <span *ngIf="signupForm.controls.password.errors.required"
+            >Password is required</span
+          >
+        </div>
+        <!-- <a href="#">Forget your Password?</a> -->
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!(signupForm.valid && signupForm.dirty)"
+          (click)="onSignup()"
+          *ngIf="!isLoading"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+
+    <div class="form-container sign-in">
+      <form [formGroup]="loginForm" *ngIf="!isLoading">
+        <h1>Sign In</h1>
+        <!-- <div class="social-icons">
+          <a href="#" class="icons"><i class="fa-brands fa-google-plus-g"></i></a>
+          <a href="#" class="icons"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="icons"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="icons"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div> -->
+        <!-- <span>or use your email/password</span> -->
+
+        <input type="email" placeholder="Email" formControlName="email" />
+        <div
+          *ngIf="
+            loginForm.controls.email.touched && loginForm.controls.email.invalid
+          "
+          class="text-danger"
+        >
+          <span *ngIf="loginForm.controls.email.errors.required"
+            >Email is required.</span
+          >
+          <span *ngIf="loginForm.controls.email.errors.email"
+            >Please enter a valid email.</span
+          >
+        </div>
+
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div
+          *ngIf="
+            loginForm.controls.password.touched &&
+            loginForm.controls.password.invalid
+          "
+          class="text-danger"
+        >
+          <span *ngIf="loginForm.controls.password.errors.required"
+            >Password is required</span
+          >
+        </div>
+        <!-- <a href="#">Forget your Password?</a> -->
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!(loginForm.valid && loginForm.dirty)"
+          (click)="onLogin()"
+          *ngIf="!isLoading"
+        >
+          Sign In
+        </button>
+      </form>
+    </div>
+
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Welcome Back!</h1>
+          <p>Enter your Personal details to use all of site features</p>
+          <button
+            class="hidden"
+            id="login"
+            (click)="showActiveClass = !showActiveClass"
+          >
+            Sign In
+          </button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Hello, Friend!</h1>
+          <p>Register with your Personal details to use all of site features</p>
+          <button
+            class="hidden"
+            id="register"
+            (click)="showActiveClass = !showActiveClass"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

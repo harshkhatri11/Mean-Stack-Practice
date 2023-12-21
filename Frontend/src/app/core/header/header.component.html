@@ -1,0 +1,41 @@
+<div class="d-flex">
+  <div class="align-div">
+    <div>
+      <img [src]="avatarImg" />
+    </div>
+    <div class="user-details">
+      <span>Hi, {{currentUserDetails?.basicDetails?.firstName}} {{currentUserDetails?.basicDetails?.lastName}}</span>
+      <span class="d-flex"
+        >{{currentUserDetails?.email}} &nbsp;<mat-icon
+          style="cursor: pointer"
+          [matMenuTriggerFor]="menu"
+          >expand_more</mat-icon
+        ></span
+      >
+    </div>
+  </div>
+  <div class="hr-divider"></div>
+  <span
+    (click)="onLogout()"
+    class="align-div"
+    style="cursor: pointer;"
+    ><mat-icon>logout</mat-icon></span
+  >
+  <div>
+    <mat-menu #menu="matMenu">
+      <span class="mat-body">Last Login :</span>
+      <br />
+      <p class="mat-body-strong">{{ lastLogin | dynamicMoment:"MMMM Do YYYY, h:mm:ss a" | async }}</p>
+      <!-- <p class="mat-body-strong">{{ lastLogin }}</p> -->
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="handleEditAction(currentUserDetails)">
+        <mat-icon>person</mat-icon>
+        <span>My Profile</span>
+      </button>
+      <button mat-menu-item (click)="setting()">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>

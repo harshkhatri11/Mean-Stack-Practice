@@ -1,0 +1,184 @@
+@import "../../shared/styles/variables";
+
+.user-image {
+  border-radius: 50%;
+  border: 1px solid #67757c;
+  width: 112px;
+  height: 112px;
+}
+
+.user-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-email {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+
+  span {
+    white-space: nowrap;
+    width: 6vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+  }
+
+  mat-icon {
+    color: #1565c0;
+    margin-right: 0.5rem;
+  }
+}
+
+.user-name {
+  font-size: 20px;
+  color: $primary-color;
+  font-weight: 500;
+  justify-content: center;
+
+  white-space: nowrap;
+  width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .user-img-container {
+    margin-right: 0;
+  }
+
+  .user-details-container {
+    margin-left: 0;
+  }
+
+  .user-img-mobile {
+    display: block;
+    margin: auto;
+  }
+
+  .user-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .user-name {
+    width: auto;
+    max-width: 15rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .mat-toolbar{
+//   margin: -24px;
+//   width: auto;
+//   margin-bottom: 10px;
+// }
+
+// .title-center{
+//   flex:1 1 auto;
+//   text-align: center;
+// }
+// .user-image{
+//   border-radius: 50%;
+//   border: 1px solid #67757c;
+//   width: 112px;
+//   height: 112px;
+// }
+
+// .user-img-container{
+//   display: flex;
+//   align-items: center;
+//   padding-right: 10px;
+//   margin-right: 30px;
+// }
+// .user-border{
+//   border-left: 1px solid #67757c42;
+//   height: 300px;
+//   margin: auto 0;
+
+// }
+
+// .user-details-container{
+//   margin-left: 30px;
+// }
+// .user-img-mobile{
+//   display: none;
+// }
+// mat-form-field{
+//   padding: 5px;
+// }
+// .mat-datepicker-content .mat-calendar {
+//   width: 229px!important;
+//   height: 300px!important;
+// }
+
+// .empid-exist{
+//   color: #d9534f;
+// }
+
+// .empid-not-exist{
+//   color: #5cb85c;
+// }
+
+// @media screen and (max-width: 414px) {
+//   .user-img-container,.user-border{
+//       display: none;
+//   }
+//   .user-img-container{
+//       margin-right: 0;
+//   }
+//   .user-details-container{
+//       margin-left: 0;
+//   }
+//   .user-img-mobile{
+//       display: block;
+//       margin: auto;
+//   }
+
+//   .user-image{
+//       width: 130px;
+//       height: 130px;
+//   }
+
+// }

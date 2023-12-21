@@ -1,0 +1,57 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="title">{{ "SETTINGS" | translate }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-3">
+    <form [formGroup]="userSettingsForm">
+      <div class="wrap" [ngClass]="{ vert: showMyVertClass }">
+        <mat-tab-group>
+          <mat-tab label="{{ 'settings.Personalization' | translate }}">
+            <div class="container mt-3 mt-md-0">
+              <div class="row">
+                <div class="col-md-6 col-lg-5 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix">Language</mat-label>
+                    <ng-select
+                      [(ngModel)]="selectedLang"
+                      formControlName="language"
+                    >
+                      <ng-option value="en">English</ng-option>
+                      <ng-option value="hi">Hindi</ng-option>
+                      <ng-option value="gu">Gujarati</ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-5 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label>Theming</mat-label>
+                    <ng-select formControlName="theme"  [(ngModel)]="selectedTheme">
+                      <ng-option value="default">Default Theme</ng-option>
+                      <ng-option value="pg">Purple & Green</ng-option>
+                      <ng-option value="pb">Pink & Blue-grey</ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="{{ 'settings.DateTime' | translate }}"> </mat-tab>
+          <mat-tab label="{{ 'settings.Notification' | translate }}"> </mat-tab>
+        </mat-tab-group>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="justify-content-end">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit()"
+      [disabled]="!userSettingsForm.valid || userSettingsForm.pristine"
+    >
+      {{ "SAVE" | translate }}
+    </button>
+    <button mat-raised-button mat-dialog-close class="mx-3">
+      {{ "CLOSE" | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>

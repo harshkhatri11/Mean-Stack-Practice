@@ -1,0 +1,20 @@
+{
+
+  "Dashboard":"डैशबोर्ड",
+  "EMS":"ईएम",
+  "View Bill":"बिल देखें",
+
+  "SETTINGS":"समायोजन",
+  "SAVE":"बचाना",
+  "CLOSE":"बंद",
+  "UPDATE":"अद्यतन",
+  "SEARCH":"खोज",
+
+
+  "settings.Personalization":"वैयक्तिकरण",
+  "settings.DateTime":"दिनांक और समय",
+  "settings.Notification":"अधिसूचना",
+
+  "Employee Management System":"कर्मचारी प्रबंधन प्रणाली"
+
+}

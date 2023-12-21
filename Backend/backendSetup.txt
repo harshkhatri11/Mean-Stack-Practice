@@ -1,0 +1,25 @@
+npm i --save mongoose
+npm i --save mongoose-unique-validator
+npm i --save bcrypt //Provide encryption functionality
+npm install --save jsonwebtoken
+npm install --save-dev nodemon
+
+npm install express
+npm install cors
+
+npm install express-mongo-sanitize  
+            // By default, $ and . characters are removed completely from user-supplied input in the following places:
+            // - req.body
+            // - req.params
+            // - req.headers
+            // - req.query
+
+//Mongo db user
+//user:harsh
+
+
+npm-check-updates
+------------------------------------------------------------------------------------------------------------------
+npx npm-check-updates : to list what packages are out of date (basically the same thing as running npm outdated)
+npx npm-check-updates -u : to update all the versions in your package.json (this is the magic sauce)
+npm install --legacy-peer-deps :  to install the new versions of your packages based on the updated package.json

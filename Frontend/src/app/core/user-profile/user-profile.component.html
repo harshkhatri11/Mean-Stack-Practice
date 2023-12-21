@@ -1,0 +1,115 @@
+<mat-dialog-content>
+  <div class="d-flex justify-content-between">
+    <div class="core-title">My Profile</div>
+    <div mat-dialog-close><mat-icon>close</mat-icon></div>
+  </div>
+
+  <form [formGroup]="employeeForm">
+    <div class="mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-lg-2 col-12 align-div flex-column">
+            <div class="user-img-container pb-4">
+              <img src="{{ userProfileForm.avatar }}" class="user-image" />
+            </div>
+            <div class="user-name" matTooltip="{{ userDisplaypName }}">
+              {{ userDisplaypName }}
+            </div>
+          </div>
+          <div class="col-md-1 col-lg-1 col-12"></div>
+          <div class="col-md-9 col-lg-9 col-12 mt-3 mt-md-0">
+            <div class="row">
+              <div class="col-md-6 col-lg-4 col-12">
+                <div class="d-flex flex-column">
+                  <mat-label class="required-asterix">First Name</mat-label>
+                  <mat-form-field>
+                    <input matInput formControlName="firstName" required />
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4 col-12">
+                <div class="d-flex flex-column">
+                  <mat-label class="">Middle Name</mat-label>
+                  <mat-form-field>
+                    <input matInput formControlName="middleName" />
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4 col-12">
+                <div class="d-flex flex-column">
+                  <mat-label class="required-asterix">Last Name</mat-label>
+                  <mat-form-field>
+                    <input matInput formControlName="lastName" required />
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4 col-12">
+                <div class="d-flex flex-column">
+                  <mat-label class="required-asterix">Mobile Number</mat-label>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      required
+                      formControlName="phone"
+                      type="text"
+                      maxlength="10"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4 col-12">
+                <div class="d-flex flex-column">
+                  <mat-label class="required-asterix">Gender</mat-label>
+                  <ng-select formControlName="gender">
+                    <ng-option
+                      *ngFor="let gender of genderList"
+                      [value]="gender.optionValue"
+                    >
+                      {{ gender.optionText | titlecase }}</ng-option
+                    >
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4 col-12">
+                <div class="d-flex flex-column">
+                  <mat-label class="required-asterix">Date of birth</mat-label>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="picker"
+                      formControlName="dob"
+                      [max]="today"
+                      readonly
+                    />
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    (click)="onSubmit()"
+    [disabled]="!employeeForm.valid || employeeForm.pristine"
+  >
+    {{ "SAVE" | translate }}
+  </button>
+  <button mat-stroked-button mat-dialog-close>{{ "CLOSE" | translate }}</button>
+</mat-dialog-actions>

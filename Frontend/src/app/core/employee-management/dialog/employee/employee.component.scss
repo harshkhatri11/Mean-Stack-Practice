@@ -1,0 +1,81 @@
+.mat-ion {
+  margin-right: 0.8rem;
+}
+
+.wrap {
+  margin-bottom: 1rem;
+
+  &.vert {
+    ::ng-deep {
+      .mat-mdc-tab-labels {
+        flex-direction: column;
+      }
+
+      .mat-mdc-tab-group {
+        flex-direction: row;
+      }
+
+      .mat-mdc-ink-bar {
+        height: 100%;
+        left: calc(100% - 2px) !important;
+        width: 2px !important;
+      }
+
+      .mat-mdc-tab-header {
+        border-bottom: none;
+      }
+
+      .mat-mdc-tab-body-wrapper {
+        flex: 1 1 auto;
+      }
+
+      .mat-mdc-tab-header-pagination {
+        display: none !important;
+      }
+
+      .mat-mdc-tab-label-container {
+        border-right: 2px solid #ccc;
+        margin-right: 1rem;
+      }
+
+      .mat-mdc-tab {
+        justify-content: left;
+      }
+
+      .mdc-tab--active {
+        background-color: #043e7033;
+        color: white;
+      }
+
+      .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+        color: #3f51b5;
+      }
+    }
+  }
+}
+
+.info-conatiner {
+  display: flex;
+  flex-wrap: wrap;
+
+  div{
+    display: flex;
+   flex-direction: column;
+   margin-right: 2.5rem;
+
+   &:last-child {
+     margin-right: 0;
+   }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .info-conatiner {
+    justify-content: center;
+    align-items: center;
+
+    div{
+      margin-right: 0;
+    }
+  }
+}

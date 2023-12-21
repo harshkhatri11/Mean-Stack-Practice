@@ -1,0 +1,51 @@
+.success {
+  border: 1px solid green;
+}
+
+.fail {
+  border: 1px solid red;
+}
+
+.password-policy {
+  //border: 1px solid #b2b2b2;
+  border-radius: 1.2rem;
+  padding: 1.2rem;
+
+  .pass-policy-list {
+    list-style: none;
+    padding-left: 0 !important;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.summary-heading {
+  display: flex;
+  align-items: center;
+  background-color: #3f51b5;
+  font-weight: 500;
+  color: white;
+  padding: 8px;
+  border-radius: 10px;
+  margin-bottom: 1.8rem;
+}
+
+.user-summary-mobileView{
+  ul{
+    list-style-type: disclosure-closed;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .password-policy {
+    padding: 0.8rem;
+  }
+
+  .mat-icon{
+    overflow: unset;
+  }
+}

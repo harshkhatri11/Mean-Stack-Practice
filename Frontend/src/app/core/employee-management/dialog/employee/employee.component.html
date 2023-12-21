@@ -1,0 +1,287 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="title">{{ employeeName }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-3">
+    <div class="wrap" [ngClass]="{ vert: showMyVertClass }">
+      <mat-tab-group>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="mat-ion">account_circle</mat-icon>
+            Personal Details
+          </ng-template>
+          <form [formGroup]="userPersonalDetails">
+            <div class="container mt-3 mt-xl-0">
+              <div class="row">
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix">First Name</mat-label>
+                    <mat-form-field>
+                      <input
+                        matInput
+                        type="text"
+                        maxlength="20"
+                        required
+                        formControlName="firstName"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label>Middle Name</mat-label>
+                    <mat-form-field>
+                      <input
+                        matInput
+                        type="text"
+                        maxlength="20"
+                        formControlName="middleName"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix">Last Name</mat-label>
+                    <mat-form-field>
+                      <input
+                        matInput
+                        type="text"
+                        maxlength="20"
+                        required
+                        formControlName="lastName"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix">Gender</mat-label>
+                    <ng-select formControlName="gender">
+                      <ng-option
+                        *ngFor="let gender of genderList"
+                        [value]="gender.optionValue"
+                      >
+                        {{ gender.optionText | titlecase }}</ng-option
+                      >
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix">Phone Number</mat-label>
+                    <mat-form-field>
+                      <input
+                        matInput
+                        type="text"
+                        required
+                        formControlName="phoneNumber"
+                        maxlength="10"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix"
+                      >Date of Birth</mat-label
+                    >
+                    <mat-form-field>
+                      <input
+                        matInput
+                        [matDatepicker]="picker"
+                        formControlName="dateOfBirth"
+                        [max]="today"
+                        readonly
+                        required
+                      />
+                      <mat-datepicker-toggle
+                        matIconSuffix
+                        [for]="picker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="d-flex justify-content-end mb-2">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="submitPersonalDetails()"
+              [disabled]="
+                !(userPersonalDetails.valid && userPersonalDetails.dirty)
+              "
+            >
+              {{ "UPDATE" | translate }}
+            </button>
+            <button mat-raised-button mat-dialog-close class="mx-3">
+              {{ "CLOSE" | translate }}
+            </button>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="mat-ion">work</mat-icon>
+            Professional Details
+          </ng-template>
+          <form [formGroup]="userProfessionalDetails">
+            <div class="container mt-3 mt-xl-0">
+              <div class="row">
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix"
+                      >Department Name</mat-label
+                    >
+                    <ng-select
+                      formControlName="departmentName"
+                      (change)="onDepartmentChange($event)"
+                    >
+                      <ng-option
+                        *ngFor="let department of departmentList"
+                        [value]="department.optionValue"
+                      >
+                        {{ department.optionText }}</ng-option
+                      >
+                    </ng-select>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix">Designation</mat-label>
+                    <ng-select
+                      formControlName="designationName"
+                      #selectDesignation
+                    >
+                      <ng-option
+                        *ngFor="let designation of designationsList"
+                        [value]="designation.optionValue"
+                      >
+                        {{ designation.optionText }}</ng-option
+                      >
+                    </ng-select>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix"
+                      >Date Of Joining</mat-label
+                    >
+                    <mat-form-field>
+                      <input
+                        matInput
+                        [matDatepicker]="dojpicker"
+                        formControlName="dateOfJoining"
+                        readonly
+                        required
+                      />
+                      <mat-datepicker-toggle
+                        matIconSuffix
+                        [for]="dojpicker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker #dojpicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix"
+                      >Employment Type</mat-label
+                    >
+                    <ng-select formControlName="employmentType">
+                      <ng-option
+                        *ngFor="let empType of employmentTypeList"
+                        [value]="empType.optionValue"
+                      >
+                        {{ empType.optionText | titlecase }}</ng-option
+                      >
+                    </ng-select>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-12">
+                  <div class="d-flex flex-column">
+                    <mat-label class="required-asterix"
+                      >Employment Status</mat-label
+                    >
+                    <ng-select formControlName="employmentStatus">
+                      <ng-option
+                        *ngFor="let empStatus of employeeStatusList"
+                        [value]="empStatus.optionValue"
+                      >
+                        {{ empStatus.optionText | titlecase }}</ng-option
+                      >
+                    </ng-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="d-flex justify-content-end mb-2">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="submitProfessionalDetails()"
+              [disabled]="
+                !(
+                  userProfessionalDetails.valid && userProfessionalDetails.dirty
+                )
+              "
+            >
+              {{ "UPDATE" | translate }}
+            </button>
+            <button mat-raised-button mat-dialog-close class="mx-3">
+              {{ "CLOSE" | translate }}
+            </button>
+          </div>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="mat-ion">manage_accounts</mat-icon>
+            Settings & Controls
+          </ng-template>
+          <form [formGroup]="settingControls">
+          <div class="col-md-6 col-lg-4 col-12">
+            <div class="d-flex flex-column">
+              <mat-label class="required-asterix">Access Role</mat-label>
+              <ng-select formControlName="role">
+                <ng-option
+                  *ngFor="let role of rolesList"
+                  [value]="role.optionValue"
+                >
+                  {{ role.optionText | titlecase }}</ng-option
+                >
+              </ng-select>
+            </div>
+          </div>
+        </form>
+        <div class="d-flex justify-content-end">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="submitUserSettingControl()"
+            [disabled]="
+              !(
+                settingControls.valid && settingControls.dirty
+              )
+            "
+          >
+            {{ "UPDATE" | translate }}
+          </button>
+          <button mat-raised-button mat-dialog-close class="mx-3">
+            {{ "CLOSE" | translate }}
+          </button>
+        </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-card-content>
+</mat-card>
