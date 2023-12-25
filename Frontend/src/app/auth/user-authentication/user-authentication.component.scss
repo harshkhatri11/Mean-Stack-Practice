@@ -89,6 +89,7 @@
   width: 50%;
   opacity: 0;
   z-index: 1;
+  text-align: center;
 }
 
 .container.active .sign-up {
@@ -199,3 +200,18 @@
   pointer-events: unset !important;
 }
 
+
+@media only screen and (max-width: 600px) {
+  .container form {
+    padding: 0 10px;
+  }
+
+  .toggle-panel {
+    padding: 0 10px;
+  }
+
+  .container button {
+    padding: 10px 25px;
+    margin-top: 10px;
+  }
+}
