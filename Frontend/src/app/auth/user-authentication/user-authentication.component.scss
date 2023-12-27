@@ -194,7 +194,8 @@
 .container.active .toggle-right {
   transform: translateX(200%);
 }
-.mat-mdc-raised-button[disabled]{
+
+.mat-mdc-raised-button[disabled] {
   // background-color:rgba(0, 0, 0, 0.12) !important;
   cursor: not-allowed !important;
   pointer-events: unset !important;

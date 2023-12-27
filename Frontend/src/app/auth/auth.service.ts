@@ -13,7 +13,7 @@ export class AuthService {
   private isAuthenticated = false;
   private token: string;
   private userId: string;
-  private tokenTimer: NodeJS.Timer
+  private tokenTimer: NodeJS.Timer;
   private authStatusListener = new Subject<boolean>();
   private roles: any;
   private currentUserDetails: any;
@@ -49,7 +49,6 @@ export class AuthService {
     this.http.post('/user/signup', authData).subscribe({
       next: (response) => {
         this.router.navigate(['/auth/login']);
-        alert('User created!!!!');
       },
       error: (error) => {},
     });
@@ -161,11 +160,9 @@ export class AuthService {
     return this.http.post('/user/user-login-dtls', user);
   }
 
-  updateUserDetails(data:any):Observable<any>{
-    return this.http.patch('/user/update',data);
+  updateUserDetails(data: any): Observable<any> {
+    return this.http.patch('/user/update', data);
   }
-
-
 
   getPublicContent(): Observable<any> {
     return this.http.get('/user/all', {

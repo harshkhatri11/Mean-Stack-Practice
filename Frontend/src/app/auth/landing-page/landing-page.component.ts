@@ -12,14 +12,6 @@ export class LandingPageComponent {
   isSignBtnVisbile: boolean = true;
   constructor(private router: Router, private dialog: MatDialog) {}
 
-  onLogin() {
-    this.router.navigate(['/auth/login']);
-  }
-
-  onSignup() {
-    this.router.navigate(['/auth/signup']);
-  }
-
   handleUserAuthentication() {
     let dialogConfig = new MatDialogConfig();
     dialogConfig = {

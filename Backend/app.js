@@ -47,8 +47,17 @@ app.use('/userDetails', userDetailsRoutes);
 app.use('/combo', comboRoutes);
 app.use('/combo', dependentComboRoutes);
 
-// To create a role in Role Collection
-function  initial() {
+//Globally handle error
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  if (err.status) {
+    res.status(err.status).send(err.message);
+  } else {
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+function initial() {
   // Role.estimatedDocumentCount((err, count) => {
   //   if (!err && count === 0) {
   //     new Role({
@@ -153,15 +162,6 @@ function  initial() {
   //   });
   // } catch (err) {
   //   console.log(err);
-  // }
-
-  // const email = "hk@gmail.com"
-  // const emailExist = User.find({ email: email }).lean();
-  // console.log(emailExist);
-  // if(emailExist){
-  //   console.log('true');
-  // }else{
-  //   console.log('false');
   // }
 }
 
