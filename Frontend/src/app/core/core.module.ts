@@ -25,38 +25,36 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-
-
 @NgModule({
-    declarations: [
-        ErrorComponent,
-        HomepageComponent,
-        ConfirmationComponent,
-        UserProfileDetailsComponent,
-        HeaderComponent,
-        ForbiddenPageComponent,
-        PageNotFoundComponent,
-        SidebarComponent,
-        UserProfileComponent,
-        SettingComponent,
-        PipeComponent
-    ],
-    imports: [
-        CommonModule,
-        CoreRoutingModule,
-        FormsModule,
-        MateriaModule,
-        HttpClientModule,
-        SharedModule,
-        TranslateModule.forChild({
-            defaultLanguage: 'en',
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient],
-            },
-            extend: true
-        }),
-    ]
+  declarations: [
+    ErrorComponent,
+    HomepageComponent,
+    ConfirmationComponent,
+    UserProfileDetailsComponent,
+    HeaderComponent,
+    ForbiddenPageComponent,
+    PageNotFoundComponent,
+    SidebarComponent,
+    UserProfileComponent,
+    SettingComponent,
+    PipeComponent,
+  ],
+  imports: [
+    CommonModule,
+    CoreRoutingModule,
+    FormsModule,
+    MateriaModule,
+    HttpClientModule,
+    SharedModule,
+    TranslateModule.forChild({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      extend: true,
+    }),
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

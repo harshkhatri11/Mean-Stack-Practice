@@ -25,7 +25,10 @@
                 <div class="col-md-6 col-lg-5 col-12">
                   <div class="d-flex flex-column">
                     <mat-label>Theming</mat-label>
-                    <ng-select formControlName="theme"  [(ngModel)]="selectedTheme">
+                    <ng-select
+                      formControlName="theme"
+                      [(ngModel)]="selectedTheme"
+                    >
                       <ng-option value="default">Default Theme</ng-option>
                       <ng-option value="pg">Purple & Green</ng-option>
                       <ng-option value="pb">Pink & Blue-grey</ng-option>

@@ -13,7 +13,6 @@ import { EmployeeService } from '../../Service/employee.service';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { COMBO_MAPPING } from 'src/app/shared/constants/combo-constants';
 import { NgSelectComponent } from '@ng-select/ng-select';
-import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -163,7 +162,6 @@ export class EmployeeComponent implements OnInit {
       },
     });
   }
-
 
   onDepartmentChange(departmentName) {
     this.selectDesignation.clearModel();

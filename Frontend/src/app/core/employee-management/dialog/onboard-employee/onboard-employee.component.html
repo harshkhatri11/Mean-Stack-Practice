@@ -1,8 +1,17 @@
 <form [formGroup]="onboardNewUser">
-  <mat-stepper #stepper class="example-stepper" [linear]="true" formArrayName="formArray"
-    [orientation]="(stepperOrientation | async)!">
-    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="Fill out Basic Details"
-      errorMessage="kindly fill all required fields">
+  <mat-stepper
+    #stepper
+    class="example-stepper"
+    [linear]="true"
+    formArrayName="formArray"
+    [orientation]="(stepperOrientation | async)!"
+  >
+    <mat-step
+      formGroupName="0"
+      [stepControl]="formArray?.get([0])"
+      label="Fill out Basic Details"
+      errorMessage="kindly fill all required fields"
+    >
       <mat-card class="my-3">
         <mat-card-content>
           <div class="container">
@@ -11,7 +20,12 @@
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">First Name</mat-label>
                   <mat-form-field>
-                    <input matInput type="text" maxlength="20" formControlName="firstName" />
+                    <input
+                      matInput
+                      type="text"
+                      maxlength="20"
+                      formControlName="firstName"
+                    />
                   </mat-form-field>
                 </div>
               </div>
@@ -19,7 +33,12 @@
                 <div class="d-flex flex-column">
                   <mat-label>Middle Name</mat-label>
                   <mat-form-field>
-                    <input matInput type="text" maxlength="20" formControlName="middleName" />
+                    <input
+                      matInput
+                      type="text"
+                      maxlength="20"
+                      formControlName="middleName"
+                    />
                   </mat-form-field>
                 </div>
               </div>
@@ -27,7 +46,12 @@
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">Last Name</mat-label>
                   <mat-form-field>
-                    <input matInput type="text" maxlength="20" formControlName="lastName" />
+                    <input
+                      matInput
+                      type="text"
+                      maxlength="20"
+                      formControlName="lastName"
+                    />
                   </mat-form-field>
                 </div>
               </div>
@@ -35,8 +59,12 @@
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">Gender</mat-label>
                   <ng-select formControlName="gender">
-                    <ng-option *ngFor="let gender of genderList" [value]="gender.optionValue">
-                      {{ gender.optionText | titlecase }}</ng-option>
+                    <ng-option
+                      *ngFor="let gender of genderList"
+                      [value]="gender.optionValue"
+                    >
+                      {{ gender.optionText | titlecase }}</ng-option
+                    >
                   </ng-select>
                 </div>
               </div>
@@ -44,7 +72,12 @@
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">Phone Number</mat-label>
                   <mat-form-field>
-                    <input matInput type="text" formControlName="phoneNumber" maxlength="10" />
+                    <input
+                      matInput
+                      type="text"
+                      formControlName="phoneNumber"
+                      maxlength="10"
+                    />
                   </mat-form-field>
                 </div>
               </div>
@@ -52,8 +85,17 @@
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">Date of Birth</mat-label>
                   <mat-form-field>
-                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" [max]="today" readonly />
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <input
+                      matInput
+                      [matDatepicker]="picker"
+                      formControlName="dateOfBirth"
+                      [max]="today"
+                      readonly
+                    />
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
                 </div>
@@ -64,39 +106,76 @@
       </mat-card>
 
       <div>
-        <button mat-button matStepperNext [disabled]="!(formArray?.get([0]).valid)" type="button">Next</button>
+        <button
+          mat-button
+          matStepperNext
+          [disabled]="!formArray?.get([0]).valid"
+          type="button"
+        >
+          Next
+        </button>
       </div>
     </mat-step>
-    <mat-step formGroupName="1" [stepControl]="formArray?.get([1])" label="Fill out Professional Details"
-      errorMessage="kindly fill all required fields">
+    <mat-step
+      formGroupName="1"
+      [stepControl]="formArray?.get([1])"
+      label="Fill out Professional Details"
+      errorMessage="kindly fill all required fields"
+    >
       <mat-card class="my-3">
         <mat-card-content>
           <div class="container">
             <div class="row">
               <div class="col-md-6 col-lg-4 col-12">
                 <div class="d-flex flex-column">
-                  <mat-label class="required-asterix">Department Name</mat-label>
-                  <ng-select formControlName="departmentName" (change)="onDepartmentChange($event)">
-                    <ng-option *ngFor="let department of departmentList" [value]="department.optionValue">
-                      {{ department.optionText }}</ng-option>
+                  <mat-label class="required-asterix"
+                    >Department Name</mat-label
+                  >
+                  <ng-select
+                    formControlName="departmentName"
+                    (change)="onDepartmentChange($event)"
+                  >
+                    <ng-option
+                      *ngFor="let department of departmentList"
+                      [value]="department.optionValue"
+                    >
+                      {{ department.optionText }}</ng-option
+                    >
                   </ng-select>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4 col-12">
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">Designation</mat-label>
-                  <ng-select formControlName="designationName" #selectDesignation>
-                    <ng-option *ngFor="let designation of designationsList" [value]="designation.optionValue">
-                      {{ designation.optionText }}</ng-option>
+                  <ng-select
+                    formControlName="designationName"
+                    #selectDesignation
+                  >
+                    <ng-option
+                      *ngFor="let designation of designationsList"
+                      [value]="designation.optionValue"
+                    >
+                      {{ designation.optionText }}</ng-option
+                    >
                   </ng-select>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4 col-12">
                 <div class="d-flex flex-column">
-                  <mat-label class="required-asterix">Date Of Joining</mat-label>
+                  <mat-label class="required-asterix"
+                    >Date Of Joining</mat-label
+                  >
                   <mat-form-field>
-                    <input matInput [matDatepicker]="dojpicker" formControlName="dateOfJoining" readonly />
-                    <mat-datepicker-toggle matIconSuffix [for]="dojpicker"></mat-datepicker-toggle>
+                    <input
+                      matInput
+                      [matDatepicker]="dojpicker"
+                      formControlName="dateOfJoining"
+                      readonly
+                    />
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="dojpicker"
+                    ></mat-datepicker-toggle>
                     <mat-datepicker #dojpicker></mat-datepicker>
                   </mat-form-field>
                 </div>
@@ -104,19 +183,31 @@
 
               <div class="col-md-6 col-lg-4 col-12">
                 <div class="d-flex flex-column">
-                  <mat-label class="required-asterix">Employment Type</mat-label>
+                  <mat-label class="required-asterix"
+                    >Employment Type</mat-label
+                  >
                   <ng-select formControlName="employmentType">
-                    <ng-option *ngFor="let empType of employmentTypeList" [value]="empType.optionValue">
-                      {{ empType.optionText | titlecase }}</ng-option>
+                    <ng-option
+                      *ngFor="let empType of employmentTypeList"
+                      [value]="empType.optionValue"
+                    >
+                      {{ empType.optionText | titlecase }}</ng-option
+                    >
                   </ng-select>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4 col-12">
                 <div class="d-flex flex-column">
-                  <mat-label class="required-asterix">Employment Status</mat-label>
+                  <mat-label class="required-asterix"
+                    >Employment Status</mat-label
+                  >
                   <ng-select formControlName="employmentStatus">
-                    <ng-option *ngFor="let empStatus of employeeStatusList" [value]="empStatus.optionValue">
-                      {{ empStatus.optionText | titlecase }}</ng-option>
+                    <ng-option
+                      *ngFor="let empStatus of employeeStatusList"
+                      [value]="empStatus.optionValue"
+                    >
+                      {{ empStatus.optionText | titlecase }}</ng-option
+                    >
                   </ng-select>
                 </div>
               </div>
@@ -126,11 +217,22 @@
       </mat-card>
       <div>
         <button mat-button matStepperPrevious type="button">Back</button>
-        <button mat-button matStepperNext [disabled]="!(formArray?.get([1]).valid)"  type="button">Next</button>
+        <button
+          mat-button
+          matStepperNext
+          [disabled]="!formArray?.get([1]).valid"
+          type="button"
+        >
+          Next
+        </button>
       </div>
     </mat-step>
-    <mat-step formGroupName="2" [stepControl]="formArray?.get([2])" label="Create Credentials"
-      errorMessage="kindly fill all required fields">
+    <mat-step
+      formGroupName="2"
+      [stepControl]="formArray?.get([2])"
+      label="Create Credentials"
+      errorMessage="kindly fill all required fields"
+    >
       <mat-card class="my-3">
         <mat-card-content>
           <div class="container">
@@ -139,10 +241,19 @@
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">Email</mat-label>
                   <mat-form-field>
-                    <input matInput type="email" formControlName="email" (ngModelChange)="checkEmailExists($event)" />
-                    <mat-icon matSuffix matTooltip="Check Email already exist or not"
-                      [style.color]="isEmailExist ? 'red' : 'green'">
-                      {{ isEmailExist ? "close" : "done" }}</mat-icon>
+                    <input
+                      matInput
+                      type="email"
+                      formControlName="email"
+                      (ngModelChange)="checkEmailExists($event)"
+                    />
+                    <mat-icon
+                      matSuffix
+                      matTooltip="Check Email already exist or not"
+                      [style.color]="isEmailExist ? 'red' : 'green'"
+                    >
+                      {{ isEmailExist ? "close" : "done" }}</mat-icon
+                    >
                     @if (userCredentials.controls['email'].hasError('email') &&
                     !userCredentials.controls['email'].hasError('required')) {
                     <mat-error>Please enter a valid email address</mat-error>
@@ -156,79 +267,135 @@
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">Password</mat-label>
                   <mat-form-field>
-                    <input matInput type="{{ showPassword ? 'text' : 'password' }}" formControlName="password"
-                      onpaste="return false" ondrop="return false" autocomplete="off" (ngModelChange)="
+                    <input
+                      matInput
+                      type="{{ showPassword ? 'text' : 'password' }}"
+                      formControlName="password"
+                      onpaste="return false"
+                      ondrop="return false"
+                      autocomplete="off"
+                      (ngModelChange)="
                         passPolicyChecker($event); validatepassword($event)
-                      " />
-                    <mat-icon matSuffix color="primary" (click)="showPassword = !showPassword">{{
-                      showPassword ? "visibility" : "visibility_off"
-                      }}</mat-icon>
+                      "
+                    />
+                    <mat-icon
+                      matSuffix
+                      color="primary"
+                      (click)="showPassword = !showPassword"
+                      >{{
+                        showPassword ? "visibility" : "visibility_off"
+                      }}</mat-icon
+                    >
                   </mat-form-field>
                 </div>
 
                 <div class="d-flex flex-column">
-                  <mat-label class="required-asterix">Confirm Password</mat-label>
+                  <mat-label class="required-asterix"
+                    >Confirm Password</mat-label
+                  >
                   <mat-form-field>
-                    <input matInput type="{{ showConfirmPassword ? 'text' : 'password' }}"
-                      formControlName="confirmPassword" onpaste="return false" ondrop="return false" autocomplete="off"
-                      (ngModelChange)="validatepassword($event)" />
-                    <mat-icon matSuffix color="primary" (click)="showConfirmPassword = !showConfirmPassword">{{
-                      showConfirmPassword ? "visibility" : "visibility_off"
-                      }}</mat-icon>
+                    <input
+                      matInput
+                      type="{{ showConfirmPassword ? 'text' : 'password' }}"
+                      formControlName="confirmPassword"
+                      onpaste="return false"
+                      ondrop="return false"
+                      autocomplete="off"
+                      (ngModelChange)="validatepassword($event)"
+                    />
+                    <mat-icon
+                      matSuffix
+                      color="primary"
+                      (click)="showConfirmPassword = !showConfirmPassword"
+                      >{{
+                        showConfirmPassword ? "visibility" : "visibility_off"
+                      }}</mat-icon
+                    >
                   </mat-form-field>
                 </div>
                 <div class="d-flex flex-column">
                   <mat-label class="required-asterix">Access Role</mat-label>
                   <ng-select formControlName="role">
-                    <ng-option *ngFor="let role of rolesList" [value]="role.optionValue">
-                      {{ role.optionText | titlecase }}</ng-option>
+                    <ng-option
+                      *ngFor="let role of rolesList"
+                      [value]="role.optionValue"
+                    >
+                      {{ role.optionText | titlecase }}</ng-option
+                    >
                   </ng-select>
                 </div>
               </div>
-              <div class="col-md-12 col-lg-8 col-12 d-flex justify-content-center align-items-center">
-                <div class="password-policy shadow bg-white" [ngClass]="
+              <div
+                class="col-md-12 col-lg-8 col-12 d-flex justify-content-center align-items-center"
+              >
+                <div
+                  class="password-policy shadow bg-white"
+                  [ngClass]="
                     isPassPolicyCheck && isPasswordMatch ? 'success' : 'fail'
-                  ">
+                  "
+                >
                   <h3>Password Policy</h3>
                   <ul class="pass-policy-list">
                     <li>
-                      <mat-icon [ngStyle]="
+                      <mat-icon
+                        [ngStyle]="
                           isLower ? { color: 'green' } : { color: 'red' }
-                        " class="me-2">{{ isLower ? "done" : "close" }}</mat-icon>Atleast one lowercase (a-z).
+                        "
+                        class="me-2"
+                        >{{ isLower ? "done" : "close" }}</mat-icon
+                      >Atleast one lowercase (a-z).
                     </li>
 
                     <li>
-                      <mat-icon [ngStyle]="
+                      <mat-icon
+                        [ngStyle]="
                           isUpper ? { color: 'green' } : { color: 'red' }
-                        " class="me-2">{{ isUpper ? "done" : "close" }}</mat-icon>Atleast one uppercase (A-Z).
+                        "
+                        class="me-2"
+                        >{{ isUpper ? "done" : "close" }}</mat-icon
+                      >Atleast one uppercase (A-Z).
                     </li>
 
                     <li>
-                      <mat-icon [ngStyle]="
+                      <mat-icon
+                        [ngStyle]="
                           isDigit ? { color: 'green' } : { color: 'red' }
-                        " class="me-2">{{ isDigit ? "done" : "close" }}</mat-icon>Atleast one number (0-9).
+                        "
+                        class="me-2"
+                        >{{ isDigit ? "done" : "close" }}</mat-icon
+                      >Atleast one number (0-9).
                     </li>
 
                     <li>
-                      <mat-icon [ngStyle]="
+                      <mat-icon
+                        [ngStyle]="
                           isSpecialChar ? { color: 'green' } : { color: 'red' }
-                        " class="me-2">{{ isSpecialChar ? "done" : "close" }}</mat-icon>Atleast one special character
-                      &#64;$!%^
+                        "
+                        class="me-2"
+                        >{{ isSpecialChar ? "done" : "close" }}</mat-icon
+                      >Atleast one special character &#64;$!%^
                     </li>
 
                     <li>
-                      <mat-icon [ngStyle]="
+                      <mat-icon
+                        [ngStyle]="
                           isMinlength ? { color: 'green' } : { color: 'red' }
-                        " class="me-2">{{ isMinlength ? "done" : "close" }}</mat-icon>Should be minimum 8 characters.
+                        "
+                        class="me-2"
+                        >{{ isMinlength ? "done" : "close" }}</mat-icon
+                      >Should be minimum 8 characters.
                     </li>
 
                     <li>
-                      <mat-icon [ngStyle]="
+                      <mat-icon
+                        [ngStyle]="
                           isPasswordMatch
                             ? { color: 'green' }
                             : { color: 'red' }
-                        " class="me-2">{{ isPasswordMatch ? "done" : "close" }}</mat-icon>Password and Confirm Password
-                      should be same
+                        "
+                        class="me-2"
+                        >{{ isPasswordMatch ? "done" : "close" }}</mat-icon
+                      >Password and Confirm Password should be same
                     </li>
                   </ul>
                 </div>
@@ -239,7 +406,12 @@
       </mat-card>
       <div>
         <button mat-button matStepperPrevious type="button">Back</button>
-        <button type="button" mat-button matStepperNext (click)="previewSummary()" [disabled]="
+        <button
+          type="button"
+          mat-button
+          matStepperNext
+          (click)="previewSummary()"
+          [disabled]="
             !(
               isPassPolicyCheck &&
               isPasswordMatch &&
@@ -248,7 +420,8 @@
               professionalDetails.valid &&
               basicDetails.valid
             )
-          ">
+          "
+        >
           Next
         </button>
       </div>
@@ -284,7 +457,7 @@
                         <p>:&nbsp;&nbsp;&nbsp;{{ user.phoneNumber }}</p>
                         <p>
                           :&nbsp;&nbsp;&nbsp;{{
-                          user.dateOfBirth | date : "dd/MM/YYYY"
+                            user.dateOfBirth | date : "dd/MM/YYYY"
                           }}
                         </p>
                       </div>
@@ -311,13 +484,13 @@
                         <p>:&nbsp;&nbsp;&nbsp;{{ user.designationName }}</p>
                         <p>
                           :&nbsp;&nbsp;&nbsp;{{
-                          user.dateOfJoining | date : "dd/MM/YYYY"
+                            user.dateOfJoining | date : "dd/MM/YYYY"
                           }}
                         </p>
                         <p>:&nbsp;&nbsp;&nbsp;{{ user.employmentType }}</p>
                         <p>
                           :&nbsp;&nbsp;&nbsp;{{
-                          user.employmentStatus ? "Active" : "In Active"
+                            user.employmentStatus ? "Active" : "In Active"
                           }}
                         </p>
                       </div>
@@ -347,8 +520,7 @@
                 </div>
               </div>
             </div>
-            }
-            @else{
+            } @else{
             <div class="user-summary-mobileView">
               <div>
                 <p class="summary-heading">
@@ -363,37 +535,28 @@
                     <li>{{ user.gender | titlecase }}</li>
                     <li>{{ user.phoneNumber }}</li>
                     <li>
-                      {{
-                      user.dateOfBirth | date : "dd/MM/YYYY"
-                      }}
+                      {{ user.dateOfBirth | date : "dd/MM/YYYY" }}
                     </li>
                   </ul>
-
                 </div>
               </div>
 
               <div>
                 <p class="summary-heading">
-                  <mat-icon class="me-2">badge</mat-icon>Professional
-                  Details
+                  <mat-icon class="me-2">badge</mat-icon>Professional Details
                 </p>
                 <div>
                   <ul>
                     <li>{{ user.departmentName }}</li>
                     <li>{{ user.designationName }}</li>
                     <li>
-                      {{
-                      user.dateOfJoining | date : "dd/MM/YYYY"
-                      }}
+                      {{ user.dateOfJoining | date : "dd/MM/YYYY" }}
                     </li>
                     <li>{{ user.employmentType }}</li>
                     <li>
-                      {{
-                      user.employmentStatus ? "Active" : "In Active"
-                      }}
+                      {{ user.employmentStatus ? "Active" : "In Active" }}
                     </li>
                   </ul>
-
                 </div>
               </div>
 
@@ -407,12 +570,10 @@
                     <li>{{ user.password }}</li>
                     <li>{{ user.role | titlecase }}</li>
                   </ul>
-
                 </div>
               </div>
             </div>
             }
-
           </div>
         </mat-card-content>
       </mat-card>
@@ -425,7 +586,12 @@
           </button>
         </div>
         <div>
-          <button mat-button mat-raised-button color="primary" (click)="onSubmit()">
+          <button
+            mat-button
+            mat-raised-button
+            color="primary"
+            (click)="onSubmit()"
+          >
             Submit
           </button>
         </div>

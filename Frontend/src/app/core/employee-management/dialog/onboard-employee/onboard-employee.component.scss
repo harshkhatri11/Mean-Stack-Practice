@@ -33,19 +33,18 @@
   margin-bottom: 1.8rem;
 }
 
-.user-summary-mobileView{
-  ul{
+.user-summary-mobileView {
+  ul {
     list-style-type: disclosure-closed;
   }
 }
-
 
 @media screen and (max-width: 767px) {
   .password-policy {
     padding: 0.8rem;
   }
 
-  .mat-icon{
+  .mat-icon {
     overflow: unset;
   }
 }

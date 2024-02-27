@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { AccordionAnchorDirective, AccordionLinkDirective, AccordionDirective } from './accordion';
+import {
+  AccordionAnchorDirective,
+  AccordionLinkDirective,
+  AccordionDirective,
+} from './accordion';
 import { MenuItems } from './menu-items';
 import { DynamicMomentPipe } from './pipes/dynamic-moment.pipe';
 import { DatePipe } from '@angular/common';
@@ -20,7 +24,7 @@ import { TruncateTextPipe } from './pipes/truncate-text.pipe';
     SearchPipe,
     NumberToWordGlobalStandardPipe,
     NumberToWordIndianStandardPipe,
-    TruncateTextPipe
+    TruncateTextPipe,
   ],
   exports: [
     AccordionAnchorDirective,
@@ -31,8 +35,8 @@ import { TruncateTextPipe } from './pipes/truncate-text.pipe';
     SearchPipe,
     NumberToWordGlobalStandardPipe,
     NumberToWordIndianStandardPipe,
-    TruncateTextPipe
+    TruncateTextPipe,
   ],
-  providers: [MenuItems,DatePipe]
+  providers: [MenuItems, DatePipe],
 })
-export class SharedModule { }
+export class SharedModule {}

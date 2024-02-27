@@ -7,7 +7,7 @@ import {
   HttpResponse,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable, map, observable, tap, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
@@ -24,9 +24,9 @@ export class MessageInterceptor implements HttpInterceptor {
           if (res instanceof HttpResponse) {
             if (res.body.msgDisplay == true) {
               if (res.body.message.length) {
-                this.toster.success(res.body.message, "Success");
+                this.toster.success(res.body.message, 'Success');
               } else if (res.body.error.length) {
-                this.toster.error(res.body.error, "Error");
+                this.toster.error(res.body.error, 'Error');
               }
             }
             observer.next(res);
@@ -35,10 +35,10 @@ export class MessageInterceptor implements HttpInterceptor {
         error: (err: HttpErrorResponse) => {
           console.error(err);
           if (err.error.msgDisplay == true && err.error.error.length) {
-            this.toster.error(err.error.error, "Error");
+            this.toster.error(err.error.error, 'Error');
           }
-        }
-      })
+        },
+      });
     });
   }
 }

@@ -6,7 +6,6 @@ import { LandingPageComponent } from './auth/landing-page/landing-page.component
 import { HomepageComponent } from './core/homepage/homepage.component';
 
 const routes: Routes = [
-
   {
     path: '',
     component: LandingPageComponent,
@@ -14,27 +13,27 @@ const routes: Routes = [
       {
         path: 'auth',
         loadChildren: () =>
-          import('./auth/auth.module').then(
-            (m) => m.AuthModule)
-      }
-    ]
-
+          import('./auth/auth.module').then((m) => m.AuthModule),
+      },
+    ],
   },
   {
     path: 'main',
     canActivate: [AuthGuard],
     component: HomepageComponent,
-    children: [{
-      path:'',
-      loadChildren: () => import('./core/core.module').then((m) => m.CoreModule)
-    }
-    ]
-  }
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./core/core.module').then((m) => m.CoreModule),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

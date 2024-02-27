@@ -7,15 +7,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CommonService {
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   getCombo(comboID: String): Observable<any> {
     const combo = { comboID: comboID };
     return this.http.post('/combo/getCombo', combo);
   }
 
-  getDependentCombo(comboID: String, dependentComboName: string): Observable<any> {
-    const dependentcombo = { comboID: comboID, dependentComboName: dependentComboName };
+  getDependentCombo(
+    comboID: String,
+    dependentComboName: string
+  ): Observable<any> {
+    const dependentcombo = {
+      comboID: comboID,
+      dependentComboName: dependentComboName,
+    };
     return this.http.post('/combo/getDependentCombo', dependentcombo);
   }
 }

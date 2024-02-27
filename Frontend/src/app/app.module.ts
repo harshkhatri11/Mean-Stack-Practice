@@ -60,7 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       provide: APP_INITIALIZER,
       deps: [AppConfigService],
       useFactory: (appConfigService: AppConfigService) => () => {
-        appConfigService.loadAppConfig()
+        appConfigService.loadAppConfig();
       },
       multi: true,
     },
@@ -68,8 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: MessageInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi: true },
-
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

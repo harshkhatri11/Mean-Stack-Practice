@@ -249,37 +249,33 @@
             Settings & Controls
           </ng-template>
           <form [formGroup]="settingControls">
-          <div class="col-md-6 col-lg-4 col-12">
-            <div class="d-flex flex-column">
-              <mat-label class="required-asterix">Access Role</mat-label>
-              <ng-select formControlName="role">
-                <ng-option
-                  *ngFor="let role of rolesList"
-                  [value]="role.optionValue"
-                >
-                  {{ role.optionText | titlecase }}</ng-option
-                >
-              </ng-select>
+            <div class="col-md-6 col-lg-4 col-12">
+              <div class="d-flex flex-column">
+                <mat-label class="required-asterix">Access Role</mat-label>
+                <ng-select formControlName="role">
+                  <ng-option
+                    *ngFor="let role of rolesList"
+                    [value]="role.optionValue"
+                  >
+                    {{ role.optionText | titlecase }}</ng-option
+                  >
+                </ng-select>
+              </div>
             </div>
+          </form>
+          <div class="d-flex justify-content-end">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="submitUserSettingControl()"
+              [disabled]="!(settingControls.valid && settingControls.dirty)"
+            >
+              {{ "UPDATE" | translate }}
+            </button>
+            <button mat-raised-button mat-dialog-close class="mx-3">
+              {{ "CLOSE" | translate }}
+            </button>
           </div>
-        </form>
-        <div class="d-flex justify-content-end">
-          <button
-            mat-raised-button
-            color="primary"
-            (click)="submitUserSettingControl()"
-            [disabled]="
-              !(
-                settingControls.valid && settingControls.dirty
-              )
-            "
-          >
-            {{ "UPDATE" | translate }}
-          </button>
-          <button mat-raised-button mat-dialog-close class="mx-3">
-            {{ "CLOSE" | translate }}
-          </button>
-        </div>
         </mat-tab>
       </mat-tab-group>
     </div>

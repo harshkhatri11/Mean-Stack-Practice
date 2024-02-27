@@ -47,7 +47,7 @@ export class OnboardEmployeeComponent implements OnInit {
   departmentList: [] = [];
   rolesList: [] = [];
   isPasswordMatch: boolean = false;
-  isMobileView:boolean = false;
+  isMobileView: boolean = false;
   onAddEmployee = new EventEmitter();
   @ViewChild('selectDesignation') selectDesignation: NgSelectComponent;
   stepperOrientation: Observable<StepperOrientation>;
@@ -84,7 +84,7 @@ export class OnboardEmployeeComponent implements OnInit {
     this.initializeForm();
     this.initializeCombos();
 
-    this.previewSummary()
+    this.previewSummary();
   }
 
   initializeForm() {

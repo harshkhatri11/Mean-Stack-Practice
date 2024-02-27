@@ -9,7 +9,6 @@ import { ConfirmationComponent } from 'src/app/shared/components/confirmation/co
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { TranslateService } from '@ngx-translate/core';
 import { SettingComponent } from '../setting/setting.component';
-import { AppConfigService } from 'src/app/shared/services/app-config.service';
 
 @Component({
   selector: 'app-header',
@@ -30,7 +29,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private dialog: MatDialog,
     private router: Router,
     public translate: TranslateService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.userIsAuthenticated = this.authService.getIsAuth();
@@ -46,24 +45,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
         `${this.currentUserDetails?.basicDetails?.firstName}+${this.currentUserDetails?.basicDetails?.lastName}`;
     }, 300);
     this.getUserInfo();
-
-
   }
   getUserInfo() {
     let currentUserId = this.authService.getUserId();
     this.authService.currentUserLoggedIn(currentUserId).subscribe({
       next: (res: any) => {
         this.currentUserDetails = res.data;
-        console.log(this.currentUserDetails);
+        // console.log(this.currentUserDetails);
         this.lastLogin = this.currentUserDetails?.lastLogin;
-
       },
     });
     // this.lastLogin = moment(this.currentUserDetails?.lastLogin).format(
     //   'MMMM Do YYYY, h:mm:ss a'
     // );
   }
-
 
   handleEditAction(values: any) {
     let dialogConfig = new MatDialogConfig();
@@ -93,7 +88,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     let dialogConfig = new MatDialogConfig();
     dialogConfig = {
       backdropClass: 'blurred',
-      width: '850px'
+      width: '850px',
     };
     this.dialog.open(SettingComponent, dialogConfig);
   }
@@ -114,7 +109,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       },
     });
   }
-
 
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();

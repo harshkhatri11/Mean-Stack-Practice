@@ -4,9 +4,12 @@
       <img [src]="avatarImg" />
     </div>
     <div class="user-details">
-      <span>Hi, {{currentUserDetails?.basicDetails?.firstName}} {{currentUserDetails?.basicDetails?.lastName}}</span>
+      <span
+        >Hi, {{ currentUserDetails?.basicDetails?.firstName }}
+        {{ currentUserDetails?.basicDetails?.lastName }}</span
+      >
       <span class="d-flex"
-        >{{currentUserDetails?.email}} &nbsp;<mat-icon
+        >{{ currentUserDetails?.email }} &nbsp;<mat-icon
           style="cursor: pointer"
           [matMenuTriggerFor]="menu"
           >expand_more</mat-icon
@@ -15,17 +18,16 @@
     </div>
   </div>
   <div class="hr-divider"></div>
-  <span
-    (click)="onLogout()"
-    class="align-div"
-    style="cursor: pointer;"
+  <span (click)="onLogout()" class="align-div" style="cursor: pointer"
     ><mat-icon>logout</mat-icon></span
   >
   <div>
     <mat-menu #menu="matMenu">
       <span class="mat-body">Last Login :</span>
       <br />
-      <p class="mat-body-strong">{{ lastLogin | dynamicMoment:"MMMM Do YYYY, h:mm:ss a" | async }}</p>
+      <p class="mat-body-strong">
+        {{ lastLogin | dynamicMoment : "MMMM Do YYYY, h:mm:ss a" | async }}
+      </p>
       <!-- <p class="mat-body-strong">{{ lastLogin }}</p> -->
       <mat-divider></mat-divider>
       <button mat-menu-item (click)="handleEditAction(currentUserDetails)">

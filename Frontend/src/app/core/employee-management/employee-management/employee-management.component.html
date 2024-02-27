@@ -1,34 +1,61 @@
 <div class="title">
-  <h1>{{"Employee Management System" | translate}}</h1>
+  <h1>{{ "Employee Management System" | translate }}</h1>
 </div>
 
 <div class="action-conatiner">
   <div>
-    <input matInput (keyup)="applyFilter($event)" #input placeholder='{{"SEARCH" | translate}}...' class="search-input">
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      #input
+      placeholder="{{ 'SEARCH' | translate }}..."
+      class="search-input"
+    />
   </div>
   <div class="ms-3">
-    <button mat-flat-button color="primary" (click)="onboardEmployee()"><mat-icon>person_add</mat-icon>Add Employee</button>
+    <button mat-flat-button color="primary" (click)="onboardEmployee()">
+      <mat-icon>person_add</mat-icon>Add Employee
+    </button>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3 mt-3" *ngFor="let employee of obs |async">
+  <div
+    class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3 mt-3"
+    *ngFor="let employee of obs | async"
+  >
     <mat-card class="mat-elevation-z2">
       <mat-card-header>
-        <div style="margin-right: auto;text-align: center;">
-          <mat-card-title>{{employee.basicDetails?.firstName}} {{employee.basicDetails?.lastName}}</mat-card-title>
+        <div style="margin-right: auto; text-align: center">
+          <mat-card-title
+            >{{ employee.basicDetails?.firstName }}
+            {{ employee.basicDetails?.lastName }}</mat-card-title
+          >
           <mat-card-subtitle>
-            <span class="badge employment_type" [ngClass]="getClass(employee.empDetails?.employeementType)">
-              {{employee.empDetails?.employeementType}}
+            <span
+              class="badge employment_type"
+              [ngClass]="getClass(employee.empDetails?.employeementType)"
+            >
+              {{ employee.empDetails?.employeementType }}
             </span>
           </mat-card-subtitle>
         </div>
 
         <div>
           <mat-card-actions class="action-btn">
-            <span role='button' (click)="handleEditAction(employee)"><mat-icon
-                class="primary-color-mat-icon">edit_square</mat-icon></span>
-            <span role='button'><mat-icon style="margin-right: 0;" class="warn-color-mat-icon" (click)="handleDeleteAction(employee)">delete</mat-icon></span>
+            <span role="button" (click)="handleEditAction(employee)"
+              ><mat-icon class="primary-color-mat-icon"
+                >edit_square</mat-icon
+              ></span
+            >
+            <span role="button"
+              ><mat-icon
+                style="margin-right: 0"
+                class="warn-color-mat-icon"
+                (click)="handleDeleteAction(employee)"
+                >delete</mat-icon
+              ></span
+            >
           </mat-card-actions>
         </div>
       </mat-card-header>
@@ -36,22 +63,39 @@
         <div class="avatar-img">
           <!-- https://pravatar.cc/ -->
           <!-- <img src="https://i.pravatar.cc/150?u=admin@gmail.com"> -->
-          <img src={{employee.avatar}}>
+          <img src="{{ employee.avatar }}" />
         </div>
         <div class="emp-details">
-          <p><mat-icon class="primary-color-mat-icon">badge</mat-icon>{{employee.empDetails?.designation}}</p>
-          <p><mat-icon class="primary-color-mat-icon">mail</mat-icon><a
-              href="mailto:{{employee.email}}">{{employee.email}}</a></p>
-          <p><mat-icon class="primary-color-mat-icon"
-              matTooltip="Date of Joining">calendar_month</mat-icon>{{employee.empDetails?.dateOfJoining |
-            date:'dd/MM/YYYY'}}
+          <p>
+            <mat-icon class="primary-color-mat-icon">badge</mat-icon
+            >{{ employee.empDetails?.designation }}
           </p>
-          <p><mat-icon class="primary-color-mat-icon">{{employee.empDetails?.isStatusActive ?
-              "radio_button_checked":"radio_button_unchecked" }}</mat-icon>Active</p>
+          <p>
+            <mat-icon class="primary-color-mat-icon">mail</mat-icon
+            ><a href="mailto:{{ employee.email }}">{{ employee.email }}</a>
+          </p>
+          <p>
+            <mat-icon
+              class="primary-color-mat-icon"
+              matTooltip="Date of Joining"
+              >calendar_month</mat-icon
+            >{{ employee.empDetails?.dateOfJoining | date : "dd/MM/YYYY" }}
+          </p>
+          <p>
+            <mat-icon class="primary-color-mat-icon">{{
+              employee.empDetails?.isStatusActive
+                ? "radio_button_checked"
+                : "radio_button_unchecked"
+            }}</mat-icon
+            >Active
+          </p>
         </div>
       </mat-card-content>
     </mat-card>
   </div>
 </div>
 
-<mat-paginator [pageSizeOptions]="[6, 12, 20]" showFirstLastButtons></mat-paginator>
+<mat-paginator
+  [pageSizeOptions]="[6, 12, 20]"
+  showFirstLastButtons
+></mat-paginator>

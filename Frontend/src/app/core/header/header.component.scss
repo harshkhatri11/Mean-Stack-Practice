@@ -27,14 +27,14 @@ a {
   line-height: 1.4rem;
   margin-left: 1rem;
 
-  span{
+  span {
     font-size: 14px;
   }
 }
 
-.hr-divider{
+.hr-divider {
   border-left: 1px solid white;
-  margin: 0 1rem
+  margin: 0 1rem;
 }
 
 ::ng-deep {
@@ -42,4 +42,3 @@ a {
     padding: 8px 18px !important;
   }
 }
-

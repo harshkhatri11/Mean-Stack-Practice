@@ -1,17 +1,35 @@
 <div class="main-container">
-  <mat-toolbar color="primary" class="topbar telative" style="display: flex;justify-content: space-between">
-      <button mat-icon-button (click)="snav.toggle();isOpen=!isOpen" value="sidebarclosed"
-        style="vertical-align: bottom;">
-        <mat-icon>{{isOpen ? "menu":"menu_open"}}</mat-icon>
-      </button>
+  <mat-toolbar
+    color="primary"
+    class="topbar telative"
+    style="display: flex; justify-content: space-between"
+  >
+    <button
+      mat-icon-button
+      (click)="snav.toggle(); isOpen = !isOpen"
+      value="sidebarclosed"
+      style="vertical-align: bottom"
+    >
+      <mat-icon>{{ isOpen ? "menu" : "menu_open" }}</mat-icon>
+    </button>
     <div>
       <app-header></app-header>
     </div>
   </mat-toolbar>
-    <span class="spacer"></span>
-  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
-    <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'"
-      fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
+  <span class="spacer"></span>
+  <mat-sidenav-container
+    class="example-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
+  >
+    <mat-sidenav
+      #snav
+      id="snav"
+      class="dark-sidebar pl-xs"
+      [mode]="mobileQuery.matches ? 'side' : 'over'"
+      fixedTopGap="0"
+      [opened]="mobileQuery.matches"
+      [disableClose]="mobileQuery.matches"
+    >
       <app-sidebar></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content class="page-wrapper">

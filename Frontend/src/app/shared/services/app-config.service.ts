@@ -7,14 +7,14 @@ import { Injectable } from '@angular/core';
 export class AppConfigService {
   public appConfig: any;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient) {}
 
   loadAppConfig() {
     this.http.get('../../../assets/config/env.json').subscribe({
       next: (res: any) => {
         this.appConfig = res;
         // console.log(this.appConfig);
-      }
+      },
     });
     return this.appConfig;
   }

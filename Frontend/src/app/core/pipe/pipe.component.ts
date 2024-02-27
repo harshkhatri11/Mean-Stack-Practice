@@ -10,8 +10,7 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrl: './pipe.component.scss',
 })
 export class PipeComponent implements OnInit {
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.getAdminBoard().subscribe();

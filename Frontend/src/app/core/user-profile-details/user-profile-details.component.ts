@@ -13,11 +13,9 @@ import { CommonService } from 'src/app/shared/services/common.service';
 @Component({
   selector: 'app-user-profile-details',
   templateUrl: './user-profile-details.component.html',
-  styleUrls: ['./user-profile-details.component.scss']
+  styleUrls: ['./user-profile-details.component.scss'],
 })
-
-export class UserProfileDetailsComponent  implements OnInit{
-
+export class UserProfileDetailsComponent implements OnInit {
   userDetails: any = FormGroup;
   content?: string;
 
@@ -26,9 +24,9 @@ export class UserProfileDetailsComponent  implements OnInit{
     private http: HttpClient,
     private authService: AuthService,
     private router: Router,
-    public toster :ToastrService,
+    public toster: ToastrService,
     private changeDetectorRef: ChangeDetectorRef
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     // this.userDetails = this.formBuilder.group({
@@ -38,12 +36,11 @@ export class UserProfileDetailsComponent  implements OnInit{
 
     // console.log(localStorage.getItem('userId'));
 
-
     this.authService.getAdminBoard().subscribe({
-      next: data => {
+      next: (data) => {
         this.content = data;
       },
-      error: err => {
+      error: (err) => {
         if (err.error) {
           try {
             const res = JSON.parse(err.error);
@@ -56,23 +53,21 @@ export class UserProfileDetailsComponent  implements OnInit{
         } else {
           this.content = `Error with status: ${err.status}`;
         }
-      }
+      },
     });
   }
 
-//   const container = document.getElementById('container');
-// const registerBtn = document.getElementById('register');
-// const loginBtn = document.getElementById('login')
+  //   const container = document.getElementById('container');
+  // const registerBtn = document.getElementById('register');
+  // const loginBtn = document.getElementById('login')
 
-// registerBtn.addEventListener('click', () => {
-//   container.classList.add('active');
-// });
+  // registerBtn.addEventListener('click', () => {
+  //   container.classList.add('active');
+  // });
 
-// loginBtn.addEventListener('click', () => {
-//   container.classList.remove('active');
-// });
-
-
+  // loginBtn.addEventListener('click', () => {
+  //   container.classList.remove('active');
+  // });
 
   // handleSubmit(){
   //   let formData = this.userDetails.value;
@@ -87,5 +82,4 @@ export class UserProfileDetailsComponent  implements OnInit{
 
   //   })
   // }
-
 }
